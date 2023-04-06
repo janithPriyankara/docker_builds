@@ -135,4 +135,6 @@ executeMakeInstall "folly"
 
 rm -rf $REPO_DIR
 mkdir -p $REPO_DIR
+rm /tmp
+dnf clean all
 
