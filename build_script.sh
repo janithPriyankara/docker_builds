@@ -245,7 +245,12 @@ rm -rf $REPO_DIR
 rm -rf /tmp
 mkdir -p $REPO_DIR
 
+
+rm -rf /var/cache/dnf/*
+rm -rf /tmp/*
 dnf clean install
+rm -rfv /var/cache/* /var/log/* /tmp/*
+	
 
 echo $BASE_DIR
 #sh build_shell_script.sh
