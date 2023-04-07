@@ -99,37 +99,37 @@ preLibs=("python3" "wget" "cmake" "g++" "git-all" "zlib-devel" "auto-make" "open
 installPreLibs "${preLibs[@]}"
 
 ##uWebsockets
-cloneCheckoutRepo "https://github.com/uNetworking/uWebSockets.git" "uWebSockets" $uWebSockets_git_tag true
-executeMakeCommand "uWebSockets" 
-executeMakeInstall "uWebSockets"
-copyFiles $BASE_DIR/$REPO_DIR/uWebSockets/uSockets/uSockets.a $LIB_DIR/libuSockets.a 
-copyFilesRecursive $BASE_DIR/$REPO_DIR/uWebSockets/src $INCLUDE_DIR 
-copyFiles $BASE_DIR/$REPO_DIR/uWebSockets/uSockets/src/libusockets.h $INCLUDE_DIR 
+# cloneCheckoutRepo "https://github.com/uNetworking/uWebSockets.git" "uWebSockets" $uWebSockets_git_tag true
+# executeMakeCommand "uWebSockets" 
+# executeMakeInstall "uWebSockets"
+# copyFiles $BASE_DIR/$REPO_DIR/uWebSockets/uSockets/uSockets.a $LIB_DIR/libuSockets.a 
+# copyFilesRecursive $BASE_DIR/$REPO_DIR/uWebSockets/src $INCLUDE_DIR 
+# copyFiles $BASE_DIR/$REPO_DIR/uWebSockets/uSockets/src/libusockets.h $INCLUDE_DIR 
 
-rm -rf $REPO_DIR
-mkdir -p $REPO_DIR
+# rm -rf $REPO_DIR
+# mkdir -p $REPO_DIR
 
 
-#install fmt
-cloneCheckoutRepo "https://github.com/fmtlib/fmt.git" "fmt" $fmt_git_tag false
-executeCMake "fmt" 
-executeCMakeBuild "fmt"
-executeMakeCommand "fmt"
-executeMakeInstall "fmt"
+# #install fmt
+# cloneCheckoutRepo "https://github.com/fmtlib/fmt.git" "fmt" $fmt_git_tag false
+# executeCMake "fmt" 
+# executeCMakeBuild "fmt"
+# executeMakeCommand "fmt"
+# executeMakeInstall "fmt"
 
-rm -rf $REPO_DIR
-mkdir -p $REPO_DIR
+# rm -rf $REPO_DIR
+# mkdir -p $REPO_DIR
 
-## CLean after every installation
+# ## CLean after every installation
 
-##folly
-cloneCheckoutRepo "https://github.com/facebook/folly.git" "folly" $folly_git_tag false
-buildInstallFollyPreLibs "folly"
-runBashFile "folly" "build.sh" ""
-executeCMake "folly" 
-executeCMakeBuild "folly"
-executeMakeCommand "folly"
-executeMakeInstall "folly"
+# ##folly
+# cloneCheckoutRepo "https://github.com/facebook/folly.git" "folly" $folly_git_tag false
+# buildInstallFollyPreLibs "folly"
+# runBashFile "folly" "build.sh" ""
+# executeCMake "folly" 
+# executeCMakeBuild "folly"
+# executeMakeCommand "folly"
+# executeMakeInstall "folly"
 
 
 rm -rf $REPO_DIR
@@ -211,34 +211,34 @@ rm -rf $REPO_DIR
 rm -rf /tmp
 mkdir -p $REPO_DIR
 
-##spdlog
-cloneCheckoutRepo "https://github.com/gabime/spdlog.git" "spdlog" $spdlog_git_tag false
-executeCMake "spdlog"
-executeCMakeBuild "spdlog"
-executeMakeCommand "spdlog"
-executeMakeInstall "spdlog"
+# ##spdlog
+# cloneCheckoutRepo "https://github.com/gabime/spdlog.git" "spdlog" $spdlog_git_tag false
+# executeCMake "spdlog"
+# executeCMakeBuild "spdlog"
+# executeMakeCommand "spdlog"
+# executeMakeInstall "spdlog"
 
-rm -rf $REPO_DIR
-rm -rf /tmp
-mkdir -p $REPO_DIR
+# rm -rf $REPO_DIR
+# rm -rf /tmp
+# mkdir -p $REPO_DIR
 
-#picojson
-wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/pico-json/picojson.h
-mkdir -p $HOME_DIR/development/axp/nextgen/3rdparty/include/picojson
-cp picojson.h $HOME_DIR/development/axp/nextgen/3rdparty/include/picojson
-
-
-rm -rf $REPO_DIR
-mkdir -p $REPO_DIR
-
-#jwt
-wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/jwt/base.h
-wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/jwt/jwt.h
+# #picojson
+# wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/pico-json/picojson.h
+# mkdir -p $HOME_DIR/development/axp/nextgen/3rdparty/include/picojson
+# cp picojson.h $HOME_DIR/development/axp/nextgen/3rdparty/include/picojson
 
 
-mkdir -p $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
-cp base.h $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
-cp jwt.h $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
+# rm -rf $REPO_DIR
+# mkdir -p $REPO_DIR
+
+# #jwt
+# wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/jwt/base.h
+# wget https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/nextgen/third-party-build-libs/jwt/jwt.h
+
+
+# mkdir -p $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
+# cp base.h $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
+# cp jwt.h $HOME_DIR/development/axp/nextgen/3rdparty/include/JWT
 
 
 rm -rf $REPO_DIR
